@@ -1,6 +1,6 @@
-var buttonSubmit = document.querySelector('#app form button')
-var inputTextField = document.querySelector('#app form input')
-var content = document.querySelector('#app main')
+let buttonSubmit = document.querySelector('#app form button')
+let inputTextField = document.querySelector('#app form input')
+let content = document.querySelector('#app main')
 
 buttonSubmit.addEventListener('click', (event) => {
     event.preventDefault();
@@ -20,10 +20,10 @@ inputTextField.addEventListener('keyup', () => {
     }
 })
 
-function find() {
+async function find() {
     cleanScreen()
 
-    axios
+    await axios
         .get(`https://viacep.com.br/ws/${inputTextField.value}/json`)
         .then((response) => {
             if (response.data.erro) {
